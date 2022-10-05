@@ -1,10 +1,10 @@
 public class CalculatorMain {
     public static void main(String[] args) {
-        Calculator aa = new Calculator();
+        Calculator aa = new Calculator(10,20);
 
-        aa.plus(10,20);
-        aa.minus(10,20);
-        aa.multiple(10,20);
-        aa.divide(10,20);
+        aa.plus();
+        aa.minus();
+        aa.multiple();
+        aa.divide();
     }
 }
