@@ -10,7 +10,7 @@ public class Calculator {
         System.out.println(a*b);
     }
     public void divide(int a,int b){
-        float result = a/b;
+        float result = a/(float)b;
         System.out.println(result);
     }
 
