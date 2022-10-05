@@ -2,11 +2,11 @@ public class RandomCalculator {
 
     public int randomNum() {
         int num = (int)(Math.random()*100);
-        return num;
+        return num;//이 메서드를 호출하면 num값을 리턴한다
     }
 
     public void plus(int a) {
-        System.out.println(a + randomNum());
+        System.out.println(a + randomNum());//클래스 내의 메서드 호출**
     }
 
     public void minus (int a) {
