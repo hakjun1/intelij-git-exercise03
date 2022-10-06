@@ -11,13 +11,13 @@ public class ReadFile {
 
     public static void main(String[] args) throws IOException {
         Reader reader = new FileReader("C:\\SelfStudyJava\\java_exercise_main\\testtxt");
-        while(true){
+
+
             int data = reader.read();
             if(data == -1){
-                break;
             }
             System.out.println((char)data);
-        }
+
         reader.close();
     }
 }
