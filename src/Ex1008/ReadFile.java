@@ -14,8 +14,7 @@ public class ReadFile {
 
 
             int data = reader.read();
-            if(data == -1){
-            }
+
             System.out.println((char)data);
 
         reader.close();
