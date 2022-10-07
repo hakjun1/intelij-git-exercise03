@@ -91,14 +91,13 @@ public class PopulationStatistics {
         PopulationStatistics populationStatistics = new PopulationStatistics();
         List<PopulationMove> pml = populationStatistics.readByLine(address);
 
-
         List<String> strings = new ArrayList<>();
-        System.out.println(strings);
         for (PopulationMove pm : pml) {
             String fromTo = populationStatistics.fromToString(pm);
             strings.add(fromTo);
             //System.out.printf("전입:%s 전출:%s\n",pm.getFromSido(),pm.getToSido());
         }
+
         populationStatistics.write(strings,"./from_to.txt");
 
 //          //파일에 11,11을 저장하고 출력으로 확인
