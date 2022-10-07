@@ -47,7 +47,7 @@ public class PopulationStatistics {
         }   //실습 1 한줄의 데이터를 받아서 populationmove를 만들어라
             public PopulationMove parse(String data){
             //String data = "50,130,62000,2021,12,20,26,350.............. csv = 컴마 세퍼레이트 밸류 ,로 나뉜것
-                String[] splittedLine = data.split(","); //위키때 스플릿에 대해 설명
+                String[] splittedLine = data.split(","); // 스플릿에 대해 설명
                 return new PopulationMove(splittedLine[6],splittedLine[0]);//오버로딩 해야함**중요 전입to 전출 from
             }
 
@@ -73,7 +73,7 @@ public class PopulationStatistics {
 //            }
 
                 //파일만들기
-                populationStatistics
+                populationStatistics.createAFile("from_to");
 
 
 
