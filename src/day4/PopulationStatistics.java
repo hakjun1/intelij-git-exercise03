@@ -52,7 +52,7 @@ public class PopulationStatistics {
     public PopulationMove parse(String data) {
         //String data = "50,130,62000,2021,12,20,26,350.............. csv = 컴마 세퍼레이트 밸류 ,로 나뉜것
         String[] splittedLine = data.split(","); // 스플릿에 대해 설명
-        return new PopulationMove(splittedLine[6], splittedLine[0]);//오버로딩 해야함**중요 전입to 전출 from
+        return new PopulationMove(splittedLine[0], splittedLine[1]);//오버로딩 해야함**중요 전입to 전출 from
     }
 
     public void createAFile(String filename) {
@@ -63,11 +63,57 @@ public class PopulationStatistics {
             throw new RuntimeException(e);
         }
     }
-    //List<String
+
+
+    public void write(List<String> strs,String filename){
+        File file = new File(filename);
+        //List<String> strings = new ArrayList<>();
+        //strings.add("11,11");
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            for (String str : strs) {
+                writer.write(str);
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public String fromToString(PopulationMove populationMove) {
+        return populationMove.getFromSido() + "," + populationMove.getToSido()+"\n";
+    }
 
     public static void main(String[] args) throws IOException {
-        String address = "C:\\Users\\임학준\\Downloads\\2021_인구관련연간자료_20220927_66125.csv";
+        String address = "./from_to.txt";
         PopulationStatistics populationStatistics = new PopulationStatistics();
+        List<PopulationMove> pml = populationStatistics.readByLine(address);
+
+
+        List<String> strings = new ArrayList<>();
+        System.out.println(strings);
+        for (PopulationMove pm : pml) {
+            String fromTo = populationStatistics.fromToString(pm);
+            strings.add(fromTo);
+            //System.out.printf("전입:%s 전출:%s\n",pm.getFromSido(),pm.getToSido());
+        }
+        populationStatistics.write(strings,"./from_to.txt");
+
+//          //파일에 11,11을 저장하고 출력으로 확인
+//        List<String> strings = new ArrayList<>();
+//        strings.add("11,11");
+//        System.out.println(strings);
+
+
+
+//        List<String> strings = new ArrayList<>();//파일 한번더실행시 hello world 덮어쓰기한다
+//        for (PopulationMove pm : pml) {
+//            String fromTo = populationStatistics.fromToString(pm);
+//            strings.add(fromTo);
+//        }
+//        populationStatistics.write(strings,"./from_to.txt");
 //                //populationStatistics.readByLine(address);
 //                List<PopulationMove> pml = populationStatistics.readByLine(address);
 //                System.out.println(pml.size());
@@ -78,7 +124,7 @@ public class PopulationStatistics {
 //            }
 
         //파일만들기
-        populationStatistics.createAFile("./from_to.txt");
+        //populationStatistics.createAFile("./from_to.txt");
 
 
 ////        char c = (char)fileReader.read(); //char c 로 했을때 에러가나는이유
