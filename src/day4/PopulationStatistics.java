@@ -59,6 +59,7 @@ public class PopulationStatistics {
                     throw new RuntimeException(e);
                 }
             }
+            //List<String
 
             public static void main (String[]args) throws IOException {
                 String address = "C:\\Users\\임학준\\Downloads\\2021_인구관련연간자료_20220927_66125.csv";
@@ -73,7 +74,7 @@ public class PopulationStatistics {
 //            }
 
                 //파일만들기
-                populationStatistics.createAFile("from_to");
+                populationStatistics.createAFile("./from_to.txt");
 
 
 
