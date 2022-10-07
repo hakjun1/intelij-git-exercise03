@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class PopulationStatistics {
     public void readByChar(String filename) throws IOException {
@@ -86,19 +87,21 @@ public class PopulationStatistics {
         return populationMove.getFromSido() + "," + populationMove.getToSido()+"\n";
     }
 
+
     public static void main(String[] args) throws IOException {
         String address = "./from_to.txt";
         PopulationStatistics populationStatistics = new PopulationStatistics();
         List<PopulationMove> pml = populationStatistics.readByLine(address);
 
-        List<String> strings = new ArrayList<>();
+     //   List<String> strings = new ArrayList<>();
         for (PopulationMove pm : pml) {
-            String fromTo = populationStatistics.fromToString(pm);
-            strings.add(fromTo);
+            System.out.printf("전입:%s 전출:%s\n",pm.getFromSido(),pm.getToSido());
+          ///  String fromTo = populationStatistics.fromToString(pm);
+         ///   strings.add(fromTo);
             //System.out.printf("전입:%s 전출:%s\n",pm.getFromSido(),pm.getToSido());
         }
 
-        populationStatistics.write(strings,"./from_to.txt");
+       // populationStatistics.write(strings,"./from_to.txt");
 
 //          //파일에 11,11을 저장하고 출력으로 확인
 //        List<String> strings = new ArrayList<>();
